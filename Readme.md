@@ -3,11 +3,13 @@ Primeiros passos para inicializar a execução do projeto da aula 24
 Baixar os dois projetos do repositório do github da EBAC
 
 Projeto 1 - https://github.com/EBAC-QE/ebac-demo-store-server
+
 Projeto 2 - https://github.com/EBAC-QE/ebac-demo-store-admin
 
 Na pasta Modulo_24, use o comando git clone
 
 git clone https://github.com/EBAC-QE/ebac-demo-store-server
+
 git clone https://github.com/EBAC-QE/ebac-demo-store-admin
 
 Instale o nvm na máquina (node version manager) para usar o node 18 (antigo, mas ainda compatível com o projeto)
