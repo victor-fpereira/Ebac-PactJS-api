@@ -1,0 +1,100 @@
+{
+  "consumer": {
+    "name": "UserConsumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to all users",
+      "request": {
+        "body": {
+          "operationName": "users",
+          "query": "query users($orderBy: UserOrderByInput, $skip: Float, $take: Float, $where: UserWhereInput) {\n  items: users(orderBy: $orderBy, skip: $skip, take: $take, where: $where) {\n    createdAt\n    firstName\n    id\n    lastName\n    roles\n    updatedAt\n    username\n    __typename\n  }\n  total: _usersMeta(where: $where) {\n    count\n    __typename\n  }\n}\n",
+          "variables": {
+            "orderBy": {
+              "id": "Asc"
+            },
+            "skip": 0,
+            "take": 50,
+            "where": {}
+          }
+        },
+        "headers": {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjk4Njk4MzI1LCJleHAiOjE2OTg4NzExMjV9.bKD0vRYhUCCOlleczKjgrl1EXPqvQ4ZyHmEOkUJaR34",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/graphql"
+      },
+      "response": {
+        "body": [
+          {
+            "data": {
+              "items": [
+                {
+                  "__typename": "User",
+                  "createdAt": "2023-11-01T22:23:24.072Z",
+                  "firstName": "Admin",
+                  "id": "clogbqqi00000qmf4qbv94udy",
+                  "lastName": "User",
+                  "roles": [
+                    "user"
+                  ],
+                  "updatedAt": "2023-11-01T22:23:24.191Z",
+                  "username": "admin"
+                },
+                {
+                  "__typename": "User",
+                  "createdAt": "2023-11-03T00:12:24.483Z",
+                  "firstName": "Victor",
+                  "id": "clohv2rs30000qmv00qjzp9ym",
+                  "lastName": "Pereira",
+                  "roles": [
+                    "user"
+                  ],
+                  "updatedAt": "2023-11-03T00:12:24.483Z",
+                  "username": "vpereira"
+                }
+              ],
+              "total": {
+                "__typename": "MetaQueryPayload",
+                "count": "2"
+              }
+            }
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.9",
+      "models": "1.1.11"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "UserProvider"
+  }
+}

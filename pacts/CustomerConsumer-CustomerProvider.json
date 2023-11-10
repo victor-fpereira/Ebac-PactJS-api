@@ -1,0 +1,94 @@
+{
+  "consumer": {
+    "name": "CustomerConsumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to all customers",
+      "request": {
+        "body": {
+          "operationName": "addresses",
+          "query": "query addresses($where: AddressWhereInput) {\n  items: addresses(where: $where) {\n    address_1\n    address_2\n    city\n    createdAt\n    customers {\n      id\n      __typename\n    }\n    id\n    state\n    updatedAt\n    zip\n    __typename\n  }\n  total: _addressesMeta(where: $where) {\n    count\n    __typename\n  }\n}\n",
+          "variables": {
+            "where": {
+              "id": {
+                "in": [
+                  "clorxnsdy0000qmyccd5kckyr"
+                ]
+              }
+            }
+          }
+        },
+        "headers": {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjk5NTcwOTc1LCJleHAiOjE2OTk3NDM3NzV9.4gGyGO7Yx38Ws-kfICPCZCGePTgA3ok5tKUJ6nrui1E",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/graphql"
+      },
+      "response": {
+        "body": [
+          {
+            "data": {
+              "items": [
+                {
+                  "__typename": "Address",
+                  "address_1": "Rua do Limoeiro",
+                  "address_2": null,
+                  "city": "São Paulo",
+                  "createdAt": "2023-11-10T01:22:26.038Z",
+                  "customers": [
+                    {
+                      "__typename": "Customer",
+                      "id": "clorxoyg80002qmyctowu2me8"
+                    }
+                  ],
+                  "id": "clorxnsdy0000qmyccd5kckyr",
+                  "state": "São Paulo",
+                  "updatedAt": "2023-11-10T01:22:26.038Z",
+                  "zip": 14320123
+                }
+              ],
+              "total": {
+                "__typename": "MetaQueryPayload",
+                "count": "1"
+              }
+            }
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.9",
+      "models": "1.1.11"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "CustomerProvider"
+  }
+}
