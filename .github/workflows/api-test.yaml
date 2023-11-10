@@ -20,13 +20,13 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Run Tests
-        run: jest tests/contract-test/consumer/user/user.spec.js
-        run: jest tests/contract-test/provider/user/user.spec.js
-        run: jest tests/contract-test/consumer/orders/order.spec.js"
-        run: jest tests/contract-test/provider/orders/order.spec.js"
-        run: jest tests/contract-test/consumer/customers/customer.spec.js"
-        run: jest tests/contract-test/provider/customers/customer.spec.js"
-        run: jest --testNamePattern='HealthCheck'"
+        run: npm run jest tests/contract-test/consumer/user/user.spec.js
+        run: npm run jest tests/contract-test/provider/user/user.spec.js
+        run: npm run jest tests/contract-test/consumer/orders/order.spec.js
+        run: npm run jest tests/contract-test/provider/orders/order.spec.js
+        run: npm run jest tests/contract-test/consumer/customers/customer.spec.js
+        run: npm run jest tests/contract-test/provider/customers/customer.spec.js
+        run: npm run jest --testNamePattern='HealthCheck'
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3
         with:
