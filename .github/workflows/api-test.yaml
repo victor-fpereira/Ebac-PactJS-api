@@ -21,13 +21,13 @@ jobs:
         run: npm i
       - name: Run Tests
         run: |
-          test:consumerUser
-          test:providerUser
-          test:consumerOrder
-          test:providerOrder
-          test:consumerCustomer
-          test:providerCustomer
-          test:healthCheck
+          npm run test:consumerUser
+          npm run test:providerUser
+          npm run test:consumerOrder
+          npm run test:providerOrder
+          npm run test:consumerCustomer
+          npm run test:providerCustomer
+          npm run test:healthCheck
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3
         with:
