@@ -3,7 +3,7 @@ name: EBAC CI PactJS API Test
   push:
     branches:
       - ci
-  #Allows you to run this workflow manually from the Actions tab 
+  #Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: null
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,13 +21,13 @@ jobs:
         run: npm i
       - name: Run Tests
         run: |
-          npm run jest tests/contract-test/consumer/user/user.spec.js
-          npm run jest tests/contract-test/provider/user/user.spec.js
-          npm run jest tests/contract-test/consumer/orders/order.spec.js
-          npm run jest tests/contract-test/provider/orders/order.spec.js
-          npm run jest tests/contract-test/consumer/customers/customer.spec.js
-          npm run jest tests/contract-test/provider/customers/customer.spec.js
-          npm run jest --testNamePattern='HealthCheck'
+          test:consumerUser
+          test:providerUser
+          test:consumerOrder
+          test:providerOrder
+          test:consumerCustomer
+          test:providerCustomer
+          test:healthCheck
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3
         with:
